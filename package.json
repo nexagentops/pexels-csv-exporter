@@ -1,0 +1,22 @@
+{
+  "name": "pexels-csv-exporter",
+  "version": "0.1.0",
+  "description": "Metadata-only Pexels API exporter for JSON and CSV spreadsheet review workflows.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "npm run lint && npm test && npm run build",
+    "export": "node --import tsx src/cli.ts",
+    "lint": "tsc -p tsconfig.test.json --noEmit",
+    "test": "node --test --import tsx test/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}

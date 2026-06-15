@@ -106,6 +106,7 @@ The docs also note that older video endpoints under `https://api.pexels.com/vide
 - The CLI never logs request headers or the API key.
 - API error output is redacted before surfacing response text internally.
 - Tests and CI use placeholder strings only, never real API keys or real API responses.
+- If a real Pexels API key is exposed, revoke or rotate it in your Pexels account before continuing, then remove the exposure from any public history or shared artifacts.
 
 ## Development
 

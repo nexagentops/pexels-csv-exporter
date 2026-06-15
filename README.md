@@ -1,8 +1,16 @@
 # Pexels CSV Exporter
 
+[![CI](https://github.com/nexagentops/code-task-build-pexels-csv-exporter/actions/workflows/ci.yml/badge.svg)](https://github.com/nexagentops/code-task-build-pexels-csv-exporter/actions/workflows/ci.yml)
+
 Metadata-only Node/TypeScript CLI for searching the Pexels API and exporting normalized JSON and CSV for spreadsheet review workflows.
 
 This project is intentionally small and conservative. It does not download media files, scrape Pexels, crawl beyond the explicit query, build ML/AI datasets, train or benchmark models, clone a stock media platform, or clone a wallpaper app.
+
+## Status
+
+This repository is private-first and public-ready. It is intended for review of Pexels-hosted metadata and links, not for media redistribution or bulk collection.
+
+Dependabot version updates are configured for npm and GitHub Actions. Enable Dependabot alerts in GitHub security settings before public release. CodeQL/code scanning is deferred until the repository is public or GitHub Code Security/code scanning is enabled for the private repository.
 
 ## Setup
 
@@ -79,6 +87,36 @@ JSON also includes export metadata with the API endpoint, page count, total resu
 - `X-Ratelimit-Remaining`
 - `X-Ratelimit-Reset`
 
+JSON output shape:
+
+```json
+{
+  "meta": {
+    "source": "Pexels",
+    "media_type": "photos",
+    "query": "coffee shop workspace",
+    "requested_limit": 50,
+    "exported_count": 50,
+    "pages_fetched": 1,
+    "rate_limit": {
+      "limit": "20000",
+      "remaining": "19999",
+      "reset": "1770000000"
+    }
+  },
+  "records": [
+    {
+      "source": "Pexels",
+      "media_type": "photo",
+      "id": 123,
+      "pexels_url": "https://www.pexels.com/photo/example-123/",
+      "attribution_text": "Photo by Creator Name on Pexels",
+      "pexels_linkback_url": "https://www.pexels.com"
+    }
+  ]
+}
+```
+
 ## CSV Safety
 
 CSV output is UTF-8 with a BOM and CRLF line endings so it opens cleanly in Numbers, Excel, Google Sheets, and LibreOffice. Text values that could be interpreted as spreadsheet formulas are prefixed with an apostrophe to reduce spreadsheet-injection risk.
@@ -108,6 +146,14 @@ The docs also note that older video endpoints under `https://api.pexels.com/vide
 - Tests and CI use placeholder strings only, never real API keys or real API responses.
 - If a real Pexels API key is exposed, revoke or rotate it in your Pexels account before continuing, then remove the exposure from any public history or shared artifacts.
 
+## Troubleshooting
+
+- `PEXELS_API_KEY is required in the environment.`: export the key in your shell or load it from a local `.env` file that is not committed.
+- `--per-page must be 80 or lower.`: lower the page size. The Pexels API maximum is 80.
+- `--color is only supported for photo searches.`: remove `--color` when `--type videos`.
+- HTTP `429`: wait until the Pexels rate-limit reset time. The CLI intentionally does not retry 429 responses.
+- Empty or smaller-than-requested exports: Pexels may have no more results for the query, filters, or media type.
+
 ## Development
 
 ```bash
@@ -118,3 +164,7 @@ npm run check
 ```
 
 Use `npm run export -- --help` to print CLI usage without requiring `PEXELS_API_KEY`.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

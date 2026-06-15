@@ -3,7 +3,23 @@
   "version": "0.1.0",
   "description": "Metadata-only Pexels API exporter for JSON and CSV spreadsheet review workflows.",
   "private": true,
+  "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nexagentops/code-task-build-pexels-csv-exporter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nexagentops/code-task-build-pexels-csv-exporter/issues"
+  },
+  "homepage": "https://github.com/nexagentops/code-task-build-pexels-csv-exporter#readme",
+  "keywords": [
+    "pexels",
+    "csv",
+    "metadata",
+    "typescript",
+    "cli"
+  ],
   "engines": {
     "node": ">=20.11"
   },

@@ -56,9 +56,25 @@ test("normalizeVideo does not expose direct video file links", () => {
     "2026-06-14T00:00:00.000Z"
   );
 
-  assert.equal(record.media_type, "video");
-  assert.equal(record.attribution_text, "Video by Sam Example on Pexels");
-  assert.equal(record.preview_url, "https://images.pexels.com/videos/789/poster.jpg");
-  assert.equal(JSON.stringify(record).includes("player.vimeo.com"), false);
-  assert.equal(record.duration_seconds, 12);
+  assert.deepEqual(record, {
+    source: "Pexels",
+    media_type: "video",
+    id: 789,
+    query: "workspace",
+    pexels_url: "https://www.pexels.com/video/desk-789/",
+    creator_name: "Sam Example",
+    creator_url: "https://www.pexels.com/@sam",
+    creator_id: 111,
+    attribution_text: "Video by Sam Example on Pexels",
+    attribution_url: "https://www.pexels.com/video/desk-789/",
+    pexels_linkback_url: "https://www.pexels.com",
+    width: 1920,
+    height: 1080,
+    aspect_ratio: 1.7778,
+    duration_seconds: 12,
+    avg_color: null,
+    alt_text: null,
+    preview_url: "https://images.pexels.com/videos/789/poster.jpg",
+    fetched_at: "2026-06-14T00:00:00.000Z"
+  });
 });

@@ -1,6 +1,6 @@
 # Pexels CSV Exporter
 
-[![CI](https://github.com/nexagentops/code-task-build-pexels-csv-exporter/actions/workflows/ci.yml/badge.svg)](https://github.com/nexagentops/code-task-build-pexels-csv-exporter/actions/workflows/ci.yml)
+[![CI](https://github.com/nexagentops/pexels-csv-exporter/actions/workflows/ci.yml/badge.svg)](https://github.com/nexagentops/pexels-csv-exporter/actions/workflows/ci.yml)
 
 Metadata-only Node/TypeScript CLI for searching the Pexels API and exporting normalized JSON and CSV for spreadsheet review workflows.
 

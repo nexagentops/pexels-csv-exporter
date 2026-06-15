@@ -7,12 +7,12 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nexagentops/code-task-build-pexels-csv-exporter.git"
+    "url": "git+https://github.com/nexagentops/pexels-csv-exporter.git"
   },
   "bugs": {
-    "url": "https://github.com/nexagentops/code-task-build-pexels-csv-exporter/issues"
+    "url": "https://github.com/nexagentops/pexels-csv-exporter/issues"
   },
-  "homepage": "https://github.com/nexagentops/code-task-build-pexels-csv-exporter#readme",
+  "homepage": "https://github.com/nexagentops/pexels-csv-exporter#readme",
   "keywords": [
     "pexels",
     "csv",
